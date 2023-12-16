@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Similar Drugs</title>
+</head>
+<body>
+    <h1>Similar Drugs</h1>
+    <h2>Input SMILES:</h2>
+    <p>{{ input_smiles }}</p>
+    <h2>Similar Drugs:</h2>
+    <ul>
+        {% for drug in similar_drugs %}
+            <li>{{ drug }} - {{ "%.2f" % (similarities[drug] * 100) }}% similarity</li>
+        {% endfor %}
+    </ul>
+    <h2>Drug Images:</h2>
+    {% for img in drug_images %}
+        <img src="{{ img }}" alt="Drug Image">
+    {% endfor %}
+</body>
+</html>

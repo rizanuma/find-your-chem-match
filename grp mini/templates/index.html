@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Analysis</title>
+</head>
+<body>
+    <h1>Drug Analysis</h1>
+
+    <form method="POST" action="/">
+        <input type="text" name="smiles" placeholder="Enter Drug SMILES" value="{{ input_smiles }}">
+        <input type="submit" value="Analyze">
+    </form>
+
+    {% if results %}
+        <h2>Results:</h2>
+        <ul>
+        {% for drug, similarity in results %}
+            <li>Drug: {{ drug }}</li>
+            <li>Similarity: {{ similarity }}%</li>
+            <li>Structure:</li>
+            <img src="data:image/png;base64,{{ Draw.MolToImage(Chem.MolFromSmiles(drug))._repr_png_() }}" alt="Drug Structure">
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Analysis</title>
+</head>
+<body>
+    <h1>Drug Analysis</h1>
+
+    <form method="POST" action="/">
+        <input type="text" name="smiles" placeholder="Enter Drug SMILES" value="{{ input_smiles }}">
+        <input type="submit" value="Analyze">
+    </form>
+
+    {% if results %}
+        <h2>Results:</h2>
+        <ul>
+        {% for drug, similarity in results %}
+            <li>Drug: {{ drug }}</li>
+            <li>Similarity: {{ similarity }}%</li>
+            <li>Structure:</li>
+            <img src="data:image/png;base64,{{ Draw.MolToImage(Chem.MolFromSmiles(drug))._repr_png_() }}" alt="Drug Structure">
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
